@@ -103,3 +103,5 @@ test/
 
 # Project exclude paths
 /dist/
+.idea
+*.iml
