@@ -29,6 +29,12 @@ let config = {
             },
             {
                 // test 检测文件类型
+                test: /\.jsx$/,
+                // loader 为webpack处理 .vue 的文件类型
+                loader: "babel-loader"
+            },
+            {
+                // test 检测文件类型
                 test: /\.css$/,
                 // 把css写入到js
                 use: [
@@ -43,6 +49,12 @@ let config = {
                     // stylus-loader(处理style成css，扔给css-loader) -> css-loader -> style-loader
                     "style-loader",
                     "css-loader",
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            sourceMap: true
+                        }
+                    },
                     // 写起来方便
                     "stylus-loader"
                 ]
