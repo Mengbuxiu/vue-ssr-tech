@@ -21,7 +21,8 @@
         },
         methods: {
             deleteTodo() {
-
+                // 通过this.$emit触发一个自定义事件
+                this.$emit('del',this.todo.id)
             }
         }
     }

@@ -1,6 +1,6 @@
 <template>
     <div class="helper">
-        <span class="left">two items left</span>
+        <span class="left">{{unFinishedTodoLength}} items left</span>
         <span class="tabs">
             <span v-for="state in states"
                   :key="state"
@@ -10,7 +10,7 @@
                 {{ state }}
             </span>
         </span>
-        <span class="clear" @click="clearAll">clearAll</span>
+        <span class="clear" @click="clearAllCompleted">clearAllCompleted</span>
     </div>
 </template>
 
@@ -21,6 +21,16 @@
             filter: {
                 type: String,
                 required: true
+            },
+            todos: {
+                type: Array,
+                required: true
+            }
+        },
+        // 当数据变化时自动修改
+        computed: {
+            unFinishedTodoLength() {
+                return this.todos.filter(todo => !todo.completed).length
             }
         },
         data() {
@@ -29,11 +39,12 @@
             }
         },
         methods: {
-            toggleFilter() {
-
+            toggleFilter(state) {
+                this.$emit('toggle',state)
             },
-            clearAll() {
-
+            clearAllCompleted() {
+                // $emit 是声明方法并在另一父组件里调用的关键字
+                this.$emit('clearAllCompleted')
             }
         }
     }

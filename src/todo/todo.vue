@@ -5,36 +5,70 @@
                 class="add-input"
                 autofocus="autofocus"
                 placeholder="接下来做什么?"
-                @keyup="addTodo"
-        >
-        <Item :todo="todo"></Item>
-        <Tabs :filter="filter"></Tabs>
+                @keyup.exact.enter="addTodo"
+        />
+        <item
+                :todo="todo"
+                v-for="todo in filteredTodos"
+                :key="todo.id"
+                @del="deleteTodo"
+        />
+        <Tabs
+                :filter="filter"
+                :todos="todos"
+                @toggle="toggleFilter"
+                @clearAllCompleted="clearAllCompleted"
+        />
     </section>
 </template>
 
 <script>
-    import Item from '../todo/item.vue'
+    import item from '../todo/item.vue'
     import Tabs from '../todo/tabs.vue'
 
+    let id = 0;
     export default {
         name: "header.vue",
         data() {
             return {
-                todo: {
-                    id: 0,
-                    content: 'this is todo',
-                    completed: false
-                },
+                todos: [],
                 filter: 'all'
             }
         },
         components: {
-            Item,
+            item,
             Tabs
         },
+        computed: {
+          filteredTodos() {
+              if (this.filter === 'all'){
+                  return this.todos;
+              }
+              const completed = this.filter === 'completed';
+              return this.todos.filter(todo => completed === todo.completed)
+          }
+        },
         methods: {
-            addTodo() {
-
+            clearAllCompleted() {
+                // 将未完成的todo重新赋值给原todos
+                this.todos = this.todos.filter(todo => !todo.completed)
+            },
+            toggleFilter(state) {
+                this.filter =state
+            },
+            addTodo(e) {
+                this.todos.unshift(
+                    {
+                        id: id++,
+                        content: e.target.value.trim(),
+                        completed: false
+                    }
+                );
+                e.target.value = ''
+            },
+            deleteTodo(id) {
+                // 如果todo.id === 传入的 id，那就删掉当前这个todo
+                this.todos.splice(this.todos.findIndex(todo => todo.id === id),1)
             }
         }
     }
