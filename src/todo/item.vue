@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        name: "header.vue",
+        name: "item.vue",
         props: {
             todo: {
                 type: Object,

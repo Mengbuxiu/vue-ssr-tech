@@ -28,7 +28,7 @@
 
     let id = 0;
     export default {
-        name: "header.vue",
+        name: "todo.vue",
         data() {
             return {
                 todos: [],
@@ -39,8 +39,12 @@
             item,
             Tabs
         },
+        // 计算属性是基于它们的响应式依赖进行缓存的。
+        // 只在相关响应式依赖发生改变时它们才会重新求值。
         computed: {
           filteredTodos() {
+              // `this` 指向 vm 实例
+              // filter 为响应式依赖
               if (this.filter === 'all'){
                   return this.todos;
               }

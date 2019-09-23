@@ -9,10 +9,12 @@
 </template>
 
 <script>
+    // 组件导入
     import Header from './todo/header.vue'
     import Todo from './todo/todo.vue'
     import Footer from './todo/footer.jsx'
     export default {
+        // 组件注册
         components: {
             Header,
             Todo,

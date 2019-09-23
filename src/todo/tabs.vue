@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        name: "header.vue",
+        name: "tabs.vue",
         props: {
             filter: {
                 type: String,
