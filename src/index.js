@@ -9,10 +9,10 @@ import App from "./app.vue";
 import "./assets/styles/global.styl"
 
 
-const root = document.createElement('div')
-document.body.appendChild(root)
+const root = document.createElement('div');
+document.body.appendChild(root);
 
 new Vue({
     render: (h) => h(App)
     // 将vue 挂载到root div 下
-}).$mount(root)
+}).$mount(root);
