@@ -75,7 +75,7 @@ let config = {
 };
 
 if (isDev) {
-    config.module.push({
+    config.module.rules.push({
         test: /\.styl/,
         use: [
             // 各自处理各自范围的代码
