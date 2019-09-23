@@ -114,6 +114,11 @@ if (isDev) {
         new webpack.NoEmitOnErrorsPlugin()
     )
 } else {
+    config.entry = {
+        app: path.join(__dirname, "src/index.js"),
+        vendor: ['vue']
+    };
+    // chunkhash 单独打包时必须要用的生成hash的方式，为每个文件单独生成hash
     config.output.filename = '[name].[chunkhash:8].js';
     // 开发环境静态样式文件单独打包
     config.module.rules.push({
@@ -138,7 +143,10 @@ if (isDev) {
     });
 
     config.plugins.push(
-        new ExtractPlugin('styles.[contentHash:8].css')
+        new ExtractPlugin('styles.[contentHash:8].css'),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        })
     )
 }
 
