@@ -146,6 +146,9 @@ if (isDev) {
         new ExtractPlugin('styles.[contentHash:8].css'),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'runtime'
         })
     )
 }
