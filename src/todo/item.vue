@@ -13,6 +13,7 @@
 <script>
     export default {
         name: "item.vue",
+        // 父传子所必须的属性 props
         props: {
             todo: {
                 type: Object,
@@ -22,6 +23,7 @@
         methods: {
             deleteTodo() {
                 // 通过this.$emit触发一个自定义事件
+                console.log('item.vue -> deleteTodo: ' + this.todo.id);
                 this.$emit('del',this.todo.id)
             }
         }
