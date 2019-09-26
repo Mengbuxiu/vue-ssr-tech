@@ -16,7 +16,7 @@ let config = {
     target: "web",
     // __dirname 文件所在的目录，即根目录
     // entry 入口
-    entry: path.join(__dirname, "src/index.js"),
+    entry: path.join(__dirname, "../client/index.js"),
     output: {
         filename: "bundle.[hash:8].js",
         path: path.join(__dirname, "dist")
@@ -115,7 +115,7 @@ if (isDev) {
     )
 } else {
     config.entry = {
-        app: path.join(__dirname, "src/index.js"),
+        app: path.join(__dirname, "client/index.js"),
         vendor: ['vue']
     };
     // chunkhash 单独打包时必须要用的生成hash的方式，为每个文件单独生成hash

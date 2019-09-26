@@ -63,9 +63,9 @@
         appearance none
         outline none
         &:after
-            content url('../assets/images/unChecked.svg')
+            content url('../../assets/images/unchecked.svg')
         &:checked:after
-            content url('../assets/images/checked.svg')
+            content url('../../assets/images/checked.svg')
     .destory
         position absolute
         top 0

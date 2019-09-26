@@ -10,9 +10,9 @@
 
 <script>
     // 组件导入
-    import Header from './todo/header.vue'
-    import Todo from './todo/todo.vue'
-    import Footer from './todo/footer.jsx'
+    import Header from './layouts/header.vue'
+    import Todo from './view/todo/todo.vue'
+    import Footer from './layouts/footer.jsx'
     export default {
         // 组件注册
         components: {

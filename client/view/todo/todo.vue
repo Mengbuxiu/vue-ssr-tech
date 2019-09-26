@@ -31,8 +31,8 @@
 </template>
 
 <script>
-    import item from '../todo/item.vue'
-    import Tabs from '../todo/tabs.vue'
+    import item from './item.vue'
+    import Tabs from './tabs.vue'
 
     let id = 0;
     export default {
