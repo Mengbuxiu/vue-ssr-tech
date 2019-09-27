@@ -1,7 +1,7 @@
 // js基本路径
 const path = require("path");
 const isDev = process.env.NODE_ENV === "development";
-
+const createVueLoaderOptions = require("./vue-loader.config");
 // 编译后的代码都在bundle.js中
 let config = {
     target: "web",
@@ -17,9 +17,19 @@ let config = {
         rules: [
             {
                 // test 检测文件类型
+                test: /\.(vue|js|jsx)$/,
+                // loader 为webpack处理 .vue 的文件类型
+                loader: "eslint-loader",
+                exclude: /node_modules/,
+                // 对这些文件进行一次预处理（在loader之前）
+                enforce: "pre"
+            },
+            {
+                // test 检测文件类型
                 test: /\.vue$/,
                 // loader 为webpack处理 .vue 的文件类型
-                loader: "vue-loader"
+                loader: "vue-loader",
+                options: createVueLoaderOptions(isDev)
             },
             {
                 // test 检测文件类型

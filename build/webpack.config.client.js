@@ -47,7 +47,7 @@ if (isDev) {
                     use: [
                         // 各自处理各自范围的代码
                         // stylus-loader(处理style成css，扔给css-loader) -> css-loader -> style-loader
-                        "style-loader",
+                        "vue-style-loader",
                         "css-loader",
                         {
                             loader: "postcss-loader",
@@ -83,7 +83,7 @@ if (isDev) {
                 {
                     test: /\.styl/,
                     use: ExtractPlugin.extract({
-                        fallback: 'style-loader',
+                        fallback: 'vue-style-loader',
                         use: [
                             // 各自处理各自范围的代码
                             // stylus-loader(处理style成css，扔给css-loader) -> css-loader -> style-loader

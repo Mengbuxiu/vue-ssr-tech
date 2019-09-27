@@ -17,40 +17,40 @@
 
 <script>
     export default {
-        name: "tabs.vue",
-        // 父传子所必须的属性
-        // 在父引用子时必须引用的属性，因为required
-        props: {
-            filter: {
-                type: String,
-                required: true
-            },
-            todos: {
-                type: Array,
-                required: true
-            }
+      name: 'tabs.vue',
+      // 父传子所必须的属性
+      // 在父引用子时必须引用的属性，因为required
+      props: {
+        filter: {
+          type: String,
+          required: true
         },
-        // 当数据变化时自动修改
-        computed: {
-            unFinishedTodoLength() {
-                return this.todos.filter(todo => !todo.completed).length
-            }
-        },
-        data() {
-            return {
-                states: ['all', 'active', 'completed']
-            }
-        },
-        methods: {
-            toggleFilter(state) {
-                console.log("tabs.vue -> 1,  state -> " + state);
-                this.$emit('toggle', state)
-            },
-            clearAllCompleted() {
-                // $emit 是声明方法并在另一父组件里调用的关键字
-                this.$emit('clearAllCompleted')
-            }
+        todos: {
+          type: Array,
+          required: true
         }
+      },
+      // 当数据变化时自动修改
+      computed: {
+        unFinishedTodoLength () {
+          return this.todos.filter(todo => !todo.completed).length
+        }
+      },
+      data () {
+        return {
+          states: ['all', 'active', 'completed']
+        }
+      },
+      methods: {
+        toggleFilter (state) {
+          console.log('tabs.vue -> 1,  state -> ' + state)
+          this.$emit('toggle', state)
+        },
+        clearAllCompleted () {
+          // $emit 是声明方法并在另一父组件里调用的关键字
+          this.$emit('clearAllCompleted')
+        }
+      }
     }
 </script>
 

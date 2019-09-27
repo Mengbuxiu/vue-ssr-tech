@@ -1,17 +1,17 @@
 <template>
 <!--    header 是 vue 原生组件-->
-    <header class="main-header">
+    <header :class="$style.mainHeader">
         <h1>TODO</h1>
     </header>
 </template>
 
 <script>
     export default {
-        name: "header.vue"
+      name: 'header.vue'
     }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" module>
     .main-header {
         text-align center
         h1 {

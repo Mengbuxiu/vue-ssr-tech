@@ -14,12 +14,12 @@
     import Todo from './view/todo/todo.vue'
     import Footer from './layouts/footer.jsx'
     export default {
-        // 组件注册
-        components: {
-            Header,
-            Todo,
-            Footer
-        }
+      // 组件注册
+      components: {
+        Header,
+        Todo,
+        Footer
+      }
     }
 </script>
 <!--lang="stylus" 指定后置处理器 scoped 当前组件范围内使用 -->

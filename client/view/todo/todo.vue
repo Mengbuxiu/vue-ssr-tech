@@ -34,59 +34,59 @@
     import item from './item.vue'
     import Tabs from './tabs.vue'
 
-    let id = 0;
-    export default {
-        name: "todo.vue",
-        data() {
-            return {
-                todos: [],
-                filter: 'all'
-            }
-        },
-        components: {
-            item,
-            Tabs
-        },
-        // 计算属性是基于它们的响应式依赖进行缓存的。
-        // 只在相关响应式依赖发生改变时它们才会重新求值。
-        computed: {
-          filteredTodos() {
-              console.log("todo.vue -> 3");
-              // `this` 指向 vm 实例
-              // filter 为响应式依赖
-              // 根据子组件tabs传过来的state的值（赋值给filter）判断todos实际应显示的值
-              if (this.filter === 'all'){
-                  return this.todos;
-              }
-              const completed = this.filter === 'completed';
-              return this.todos.filter(todo => completed === todo.completed)
-          }
-        },
-        methods: {
-            // 不需要依赖式相应，只有在点击时才需要进行的操作
-            clearAllCompleted() {
-                // 将未完成的todo重新赋值给原todos
-                this.todos = this.todos.filter(todo => !todo.completed)
-            },
-            toggleFilter(state) {
-                console.log("todo.vue -> 2");
-                this.filter = state
-            },
-            addTodo(e) {
-                this.todos.unshift(
-                    {
-                        id: id++,
-                        content: e.target.value.trim(),
-                        completed: false
-                    }
-                );
-                e.target.value = ''
-            },
-            deleteTodo(id) {
-                // 如果todo.id === 传入的 id，那就删掉当前这个todo
-                this.todos.splice(this.todos.findIndex(todo => todo.id === id),1)
-            }
+    let id = 0
+export default {
+      name: 'todo.vue',
+      data () {
+        return {
+          todos: [],
+          filter: 'all'
         }
+      },
+      components: {
+        item,
+        Tabs
+      },
+      // 计算属性是基于它们的响应式依赖进行缓存的。
+      // 只在相关响应式依赖发生改变时它们才会重新求值。
+      computed: {
+        filteredTodos () {
+          console.log('todo.vue -> 3')
+          // `this` 指向 vm 实例
+          // filter 为响应式依赖
+          // 根据子组件tabs传过来的state的值（赋值给filter）判断todos实际应显示的值
+          if (this.filter === 'all') {
+            return this.todos
+          }
+          const completed = this.filter === 'completed'
+          return this.todos.filter(todo => completed === todo.completed)
+        }
+      },
+      methods: {
+        // 不需要依赖式相应，只有在点击时才需要进行的操作
+        clearAllCompleted () {
+          // 将未完成的todo重新赋值给原todos
+          this.todos = this.todos.filter(todo => !todo.completed)
+        },
+        toggleFilter (state) {
+          console.log('todo.vue -> 2')
+          this.filter = state
+        },
+        addTodo (e) {
+          this.todos.unshift(
+            {
+              id: id++,
+              content: e.target.value.trim(),
+              completed: false
+            }
+          )
+          e.target.value = ''
+        },
+        deleteTodo (id) {
+          // 如果todo.id === 传入的 id，那就删掉当前这个todo
+          this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
+        }
+      }
     }
 </script>
 
