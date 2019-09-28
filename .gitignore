@@ -103,5 +103,6 @@ test/
 
 # Project exclude paths
 /dist/
+/dist_practice/
 .idea
 *.iml

@@ -6,12 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.config.client.js",
-    "build": "npm run clean && npm run build:client",
+    "build:practice": "cross-env NODE_ENV=production webpack --config build/webpack.config.practice.js",
     "clean": "rimraf dist",
     "lint": "eslint --ext .js --ext .jsx --ext .vue client/",
-    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue client/",
-    "precommit": "npm run lint-fix",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js"
+    "lint-fix-client": "eslint --fix --ext .js --ext .jsx --ext .vue client/",
+    "lint-fix-practice": "eslint --fix --ext .js --ext .jsx --ext .vue practice/",
+    "start-client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
+    "start-practice": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.practice.js",
+    "clean:build:client": "npm run clean && npm run build:client",
+    "clean:build:practice": "npm run clean && npm run build:practice",
+    "fix-start-client": "npm run lint-fix-client && npm run start-client",
+    "fix-start-practice": "npm run lint-fix-practice && npm run start-practice",
+    "precommit": "npm run lint-fix-client && npm run lint-fix-practice"
   },
   "author": "",
   "license": "ISC",
