@@ -3,11 +3,15 @@ import Login from '../view/login/login.vue'
 
 export default [
   {
-    path: 'app',
+    path: '/',
+    redirect: '/app'
+  },
+  {
+    path: '/app',
     components: Todo
   },
   {
-    path: 'login',
+    path: '/login',
     components: Login
   }
 ]
