@@ -8,10 +8,10 @@ export default [
   },
   {
     path: '/app',
-    components: Todo
+    component: Todo
   },
   {
     path: '/login',
-    components: Login
+    component: Login
   }
 ]

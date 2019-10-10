@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './app.vue'
+// import routes from './config/routes'
 // 此处可引用是因为在webpack.config.js中设置了css/style-loader
 // import './assets/images/pic1.jpg'
 // import './assets/styles/test.css'
