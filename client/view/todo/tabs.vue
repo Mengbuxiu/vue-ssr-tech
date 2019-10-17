@@ -1,5 +1,6 @@
 <template>
     <div class="helper">
+      <router-link to="/login">去登陆</router-link>
         <span class="left">{{unFinishedTodoLength}} items left</span>
         <span class="tabs">
 <!--            :class 动态绑定-->

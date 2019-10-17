@@ -1,10 +1,17 @@
 <template>
-  this is login page
+  <div>
+    {{ text }}
+  </div>
 </template>
 
 <script>
     export default {
-      name: 'login'
+        name: 'login.vue',
+        data () {
+            return {
+                text: 'this is login page'
+            }
+        }
     }
 </script>
 
