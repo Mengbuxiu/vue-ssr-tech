@@ -7,10 +7,12 @@ export default [
     redirect: '/app'
   },
   {
+    name: 'app',
     path: '/app',
     component: Todo
   },
   {
+    name: 'login',
     path: '/login',
     component: Login
   }

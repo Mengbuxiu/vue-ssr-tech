@@ -31,7 +31,10 @@ const devServer = {
     open: true,
     // historyApiFallback
     // 热更新，页面数据不会丢掉
-    hot: true
+    hot: true,
+    historyApiFallback: {
+      index: '/index.html'
+    }
 
 };
 let config;
