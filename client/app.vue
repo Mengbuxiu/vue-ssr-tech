@@ -15,14 +15,14 @@
 <script>
     // 组件导入
     import Header from './layouts/header.vue'
-    import Todo from './view/todo/todo.vue'
+    // import Todo from './view/todo/todo.vue'
     import Footer from './layouts/footer.jsx'
 
     export default {
       // 组件注册
       components: {
         Header,
-        Todo,
+        // Todo,
         Footer
       }
     }
