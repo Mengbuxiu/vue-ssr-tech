@@ -3,6 +3,7 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
+    <p>{{ count }}</p>
     <router-link to="/app">app</router-link>
     <router-link to="/login">login</router-link>
     <transition name="fade">
@@ -19,12 +20,24 @@
     import Footer from './layouts/footer.jsx'
 
     export default {
-      // 组件注册
-      components: {
-        Header,
-        // Todo,
-        Footer
-      }
+        // 组件注册
+        components: {
+            Header,
+            // Todo,
+            Footer
+        },
+        mounted () {
+            console.log(this.$store)
+            let i = 1
+            setInterval(() => {
+                this.$store.commit('updateCount', i++)
+            }, 1000)
+        },
+        computed: {
+            count () {
+                return this.$store.state.count
+            }
+        }
     }
 </script>
 <!--lang="stylus" 指定后置处理器 scoped 当前组件范围内使用 -->
