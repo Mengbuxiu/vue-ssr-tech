@@ -3,7 +3,7 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <p>{{ fullName }}</p>
+    <p>{{ fullName }} {{count}}</p>
     <router-link to="/app">app</router-link>
     <router-link to="/login">login</router-link>
     <transition name="fade">
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+    import {mapState, mapGetters} from 'vuex'
     // 组件导入
     import Header from './layouts/header.vue'
     // import Todo from './view/todo/todo.vue'
@@ -34,12 +35,14 @@
             }, 1000)
         },
         computed: {
-            count () {
-                return this.$store.state.count
-            },
-            fullName () {
-                return this.$store.getters.fullName
-            }
+            ...mapState(['count']),
+            // count () {
+            //     return this.$store.state.count
+            // },
+            ...mapGetters(['fullName'])
+            // fullName () {
+            //     return this.$store.getters.fullName
+            // }
         }
     }
 </script>

@@ -1,5 +1,5 @@
 export default {
   count: 0,
-  firstName: 'L',
-  lastName: 'Z'
+  firstName: 'Z',
+  lastName: 'L'
 }
